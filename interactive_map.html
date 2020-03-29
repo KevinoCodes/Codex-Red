@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>interactive_map</title>
+	<script src="csvjson.json"></script>
+</head>
+
+<body>
+
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a class="active" href="#interactive_map">Interactive Map</a>
+  <a href="help.html">How You Can Help</a>
+</div>
+
+<p>Graph</p>
+<canvas id="interactive_map" height="600px" width="900px"></canvas>
+
+Enter Country Name: <input text="text" id="mysearch">
+<button onclick="goSearch()">Submit</button>
+<h3 id="results"></h3>
+
+</body>
+
+<script>
+	
+function goSearch() {
+	var myinput = document.getElementById("mysearch").value;
+	var resultsdiv = document.getElementById("results");
+	var newstring = ""
+
+	for (country=0; country < data.length; country++) {
+		if (myinput == data[country].GeoAreaName){
+			newstring = newstring + data[country].Value + "%, ";
+		}
+	}
+
+	resultsdiv.innerHTML = newstring;
+}
+
+</script>
+
+</html>
+
+<link rel="stylesheet" href="styles.css">
