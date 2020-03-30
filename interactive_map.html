@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>interactive_map</title>
+	<script src="WaterData.json"></script>
+</head>
+
+<body>
+
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a class="active" href="#interactive_map">Interactive Map</a>
+  <a href="help.html">How You Can Help</a>
+</div>
+<p>Welcome! This is a graph engine used to display data on a bar graph. <br> Enter the country of your intrest her and see the graph below.</p>
+<p>Percent of People Who have access to water</p>
+<p>To start, Try Nigeria or China</p>
+                                       
+<center>
+
+<h2>Enter Country Name:</h2><input text="text" id="mysearch">
+<button onclick="draw()">Submit</button>
+<h3 id="results"></h3>
+
+<br>
+
+<button onclick="clear()">Clear</button>
+
+<br>
+
+</center>
+<center>
+<canvas id="graph" width="900" height="700"></canvas>
+
+<center>
+<br>
+    
+<script>
+	function clear() {
+		var c = document.getElementById("graph");
+		var ctx = c.getContext("2d");
+		context.clearRect(0, 0, canvas.width, canvas.height);
+	}
+
+	function draw() {
+
+		var myinput = document.getElementById("mysearch").value;
+		
+		var c = document.getElementById("graph");
+		var ctx = c.getContext("2d");
+
+		y=0
+
+		for (country=0; country < data.length; country++) {
+			if (myinput == data[country].Name){
+				ctx.font = "20px helvetica"
+				ctx.fillStyle = "Dark Blue";
+				ctx.fillRect(0,y,data[country]["Value"]*5,25)
+				ctx.fillStyle = "Dark Blue";
+				ctx.fillText(data[country]["Value"]+"%"+", "+data[country]["TimePeriod"],data[country]["Value"]*5+5,y+20);
+				
+
+				y=y+60
+				
+
+			}
+		}
+	}
+
+</script>
+</body>
+</html>      
+	
+
+</script>
+  
+
+</html>
+
+<link rel="stylesheet" href="styles.css">
